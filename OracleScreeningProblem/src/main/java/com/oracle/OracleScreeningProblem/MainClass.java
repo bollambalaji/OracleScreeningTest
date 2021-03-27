@@ -1,0 +1,38 @@
+package com.oracle.OracleScreeningProblem;
+
+import java.util.List;
+
+import com.oracle.OracleScreeningProblem.bean.TeamDetailsBean;
+
+public class MainClass 
+{
+    public static void main( String[] args )
+    {
+		String multiLineList = "2343225,2345,us_east,RedTeam,ProjectApple,3445s \n"
+		         + "1223456,2345,us_west,BlueTeam,ProjectBanana,2211s \n"
+		         + "3244332,2346,eu_west,YellowTeam3,ProjectCarrot,4322s \n"
+		         + "1233456,2345,us_west,BlueTeam,ProjectDate,2221s \n"
+		         + "3244132,2346,eu_west,YellowTeam3,ProjectEgg,4122s";
+		
+		//SingleTon class
+		TaskHandler taskHandler=TaskHandler.getInstance();
+		
+		//Get All data to List of Beans
+		List<TeamDetailsBean> listOfRows=taskHandler.setMultiLineToBean(multiLineList);
+	    System.out.println("Set All data to List of Beans:"+listOfRows);
+	    System.out.println();
+	    
+	    //get Operations only if List of beans contain data
+	    if(listOfRows.size() >0)
+	    {
+	    //The number of unique customerId for each contractId.
+		taskHandler.findUniqueCustomerForContractId(listOfRows);
+		
+		 //The number or list of unique customerId for each geoZone.
+		taskHandler.findUniqueCustomerForGeoZone(listOfRows);
+		
+		//Average Build Duration for each =new TaskHandler();
+		taskHandler.averageBuildDurationForGeoZone(listOfRows);
+	    }
+	}
+}
