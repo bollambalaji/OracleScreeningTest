@@ -1,6 +1,8 @@
 package com.oracle.OracleScreeningProblem;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.oracle.OracleScreeningProblem.bean.TeamDetailsBean;
 
@@ -8,10 +10,12 @@ import static org.junit.Assert.*;
 
 import java.util.List; 
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestTaskHandler {
 	
 	TaskHandler taskHandler;
 	String multiLineString;
+	List<TeamDetailsBean> listOfRows;
 	
 	@Before
 	public void setup()
@@ -25,10 +29,33 @@ public class TestTaskHandler {
 	}
 	
 	@Test
-	public void testSetMultiLineToBean()
+	public void test1SetMultiLineToBean()
 	{
-		List<TeamDetailsBean> listOfRows=taskHandler.setMultiLineToBean(multiLineString);
+		listOfRows=taskHandler.setMultiLineToBean(multiLineString);
 		System.out.println("Set All data to List of Beans:"+listOfRows);
 		assertNotNull(listOfRows);
 	}
+	
+	@Test
+	public void test2findUniqueCustomerForContractId()
+	{
+		if(listOfRows.size() >0)
+			taskHandler.findUniqueCustomerForContractId(listOfRows);
+	}
+	
+	@Test
+	public void test3findUniqueCustomerForGeoZone()
+	{
+		if(listOfRows.size() >0)
+			taskHandler.findUniqueCustomerForGeoZone(listOfRows);
+	}
+	
+	@Test
+	public void test4averageBuildDurationForGeoZone()
+	{
+		if(listOfRows.size() >0)
+			taskHandler.averageBuildDurationForGeoZone(listOfRows);
+	}
+	
+	
 }
