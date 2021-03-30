@@ -1,8 +1,5 @@
 # OracleScreeningTest
 For Submitting Oracle Screening test
-
-
-
 ---------------Code Documentation
 1.Class: com.oracle.OracleScreeningProblem.MainClass.java
 This is Entry class i,e. main class to Application , From here we are calling TaskHandler Singleton class to perform different operations 
