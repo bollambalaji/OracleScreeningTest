@@ -1,4 +1,4 @@
-package com.oracle.OracleScreeningProblem;
+package com.oracle.customer;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
