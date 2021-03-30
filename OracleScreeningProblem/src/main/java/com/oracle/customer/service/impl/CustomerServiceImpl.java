@@ -124,7 +124,7 @@ public class CustomerServiceImpl {
     
 		
 	}
-	
+	 
 	//Method takes Set of Integers and returns average for that 
 	public double getAverageOfBuildDuration(HashSet<Integer> buildDuration)
 	{
