@@ -9,13 +9,16 @@ import com.oracle.customer.service.impl.CustomerServiceImpl;
 
 public class CustomerHandler {
 
+	CustomerServiceImpl taskHandler;
+	
+	Mapper mapString;
 	
 	public void handleCustomer(String multiLineList)
 	{
-		//SingleTon class
-				CustomerServiceImpl taskHandler=CustomerServiceImpl.getInstance();
+		        //SingleTon class
+				taskHandler=CustomerServiceImpl.getInstance();
 				
-				Mapper mapString=new MapperImpl();
+				mapString=new MapperImpl();
 				
 				//Get All data to List of Beans
 				List<CustomerDetailsBean> listOfRows=mapString.setMultiLineToBean(multiLineList);
