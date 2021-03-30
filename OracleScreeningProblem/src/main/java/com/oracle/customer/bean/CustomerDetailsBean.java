@@ -1,8 +1,8 @@
-package com.oracle.OracleScreeningProblem.bean;
+package com.oracle.customer.bean;
 
 import java.math.BigInteger;
 
-public class TeamDetailsBean {
+public class CustomerDetailsBean {
 
 	BigInteger customerId;
 	

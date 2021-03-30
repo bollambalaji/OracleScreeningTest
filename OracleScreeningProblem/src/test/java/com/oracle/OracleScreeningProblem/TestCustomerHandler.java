@@ -4,23 +4,27 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import com.oracle.OracleScreeningProblem.bean.TeamDetailsBean;
+import com.oracle.customer.bean.CustomerDetailsBean;
+import com.oracle.customer.service.Mapper;
+import com.oracle.customer.service.impl.MapperImpl;
+import com.oracle.customer.service.impl.CustomerServiceImpl;
 
 import static org.junit.Assert.*;
 
 import java.util.List; 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestTaskHandler {
+public class TestCustomerHandler {
 	
-	TaskHandler taskHandler;
+	CustomerServiceImpl taskHandler;
 	String multiLineString;
-	List<TeamDetailsBean> listOfRows;
+	List<CustomerDetailsBean> listOfRows;
+	Mapper mapString;
 	
 	@Before
 	public void setup()
 	{
-		taskHandler=TaskHandler.getInstance();
+		taskHandler=CustomerServiceImpl.getInstance();
 		multiLineString= "2343225,2345,us_east,RedTeam,ProjectApple,3445s \n"
 		         + "1223456,2345,us_west,BlueTeam,ProjectBanana,2211s \n"
 		         + "3244332,2346,eu_west,YellowTeam3,ProjectCarrot,4322s \n"
@@ -31,7 +35,8 @@ public class TestTaskHandler {
 	@Test
 	public void test1SetMultiLineToBean()
 	{
-		listOfRows=taskHandler.setMultiLineToBean(multiLineString);
+		mapString=new MapperImpl();
+		listOfRows=mapString.setMultiLineToBean(multiLineString);
 		System.out.println("Set All data to List of Beans:"+listOfRows);
 		assertNotNull(listOfRows);
 	}
