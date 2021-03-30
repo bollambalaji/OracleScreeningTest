@@ -28,6 +28,8 @@ public class TaskHandler {
 		return taskHandler;
 	}
 
+	/*Method take List of Rows i,e TeamDetailsBean's Here we are iterating list . Every CuntractId we are adding as Map key 
+	And Customer ID's for That particular ContractId we are adding it in a HasSet so that it will remove Duplicates*/
 	public void findUniqueCustomerForContractId(List<TeamDetailsBean> listOfRows) {
 		// TODO Auto-generated method stub
 		HashMap<Integer,Set<BigInteger>> teamContract=new HashMap<Integer,Set<BigInteger>>();
@@ -54,6 +56,7 @@ public class TaskHandler {
 		
 	}
 
+	//Method takes MultiLine string as Input AND loads every Row to Bean object and return list Of Bean
 	public List<TeamDetailsBean> setMultiLineToBean(String multiLineList) {
 		String lines[] = multiLineList.split("[\\r\\n]+");
 		List<TeamDetailsBean> listOfRows=new ArrayList<TeamDetailsBean>();
@@ -83,6 +86,8 @@ public class TaskHandler {
 		return listOfRows;
 	}
 
+	/*Method take List of Rows i,e TeamDetailsBean's Here we are iterating list . Every GeoZone we are adding as Map key 
+	And Customer ID's for That particular GeoZone we are adding it in a HasSet so that it will remove Duplicates*/
 	public void findUniqueCustomerForGeoZone(List<TeamDetailsBean> listOfRows) {
 
 		HashMap<String,Set<BigInteger>> teamGeoGZone=new HashMap<String,Set<BigInteger>>();
@@ -109,6 +114,10 @@ public class TaskHandler {
 		
 	}
 
+	/*Method take List of Rows i,e TeamDetailsBean's Here we are iterating list . Every GeoZone we are adding as Map key 
+	 And BuildDurations for That particular GeoZone we are adding it in a HasSet so that it will remove Duplicates
+	 After getting BuildDurations in Set For particular GeoZon we are getting average of buildDuration
+	Using other method getAverageOfBuildDuration*/
 	public void averageBuildDurationForGeoZone(List<TeamDetailsBean> listOfRows) {
       Map<String,HashSet<Integer>> teamGeoGZone=new HashMap<String,HashSet<Integer>>();
 		
@@ -146,7 +155,7 @@ public class TaskHandler {
 		
 	}
 	
-	
+	//Method takes Set of Integers and returns average for that 
 	public double getAverageOfBuildDuration(HashSet<Integer> buildDuration)
 	{
 		int length=buildDuration.size();
