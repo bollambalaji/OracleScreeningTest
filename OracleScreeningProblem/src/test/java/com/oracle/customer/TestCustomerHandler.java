@@ -34,7 +34,7 @@ public class TestCustomerHandler {
 		mapString=new MapperImpl();
 		listOfRows=mapString.setMultiLineToBean(multiLineString);
 		System.out.println("Set All data to List of Beans:"+listOfRows);
-		
+		 
 	}
 	
 	
