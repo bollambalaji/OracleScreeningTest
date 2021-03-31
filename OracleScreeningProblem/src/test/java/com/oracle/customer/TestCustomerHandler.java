@@ -36,7 +36,7 @@ public class TestCustomerHandler {
 		System.out.println("Set All data to List of Beans:"+listOfRows);
 		 
 	}
-	
+	 
 	
 	@Test
 	public void testfindUniqueCustomerForContractId()
