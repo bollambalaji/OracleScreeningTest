@@ -30,33 +30,30 @@ public class TestCustomerHandler {
 		         + "3244332,2346,eu_west,YellowTeam3,ProjectCarrot,4322s \n"
 		         + "1233456,2345,us_west,BlueTeam,ProjectDate,2221s \n"
 		         + "3244132,2346,eu_west,YellowTeam3,ProjectEgg,4122s";
-	}
-	
-	@Test
-	public void test1SetMultiLineToBean()
-	{
+		    
 		mapString=new MapperImpl();
 		listOfRows=mapString.setMultiLineToBean(multiLineString);
 		System.out.println("Set All data to List of Beans:"+listOfRows);
-		assertNotNull(listOfRows);
+		
 	}
 	
+	
 	@Test
-	public void test2findUniqueCustomerForContractId()
+	public void testfindUniqueCustomerForContractId()
 	{
 		if(listOfRows.size() >0)
 			taskHandler.findUniqueCustomerForContractId(listOfRows);
 	}
 	
 	@Test
-	public void test3findUniqueCustomerForGeoZone()
+	public void testfindUniqueCustomerForGeoZone()
 	{
 		if(listOfRows.size() >0)
 			taskHandler.findUniqueCustomerForGeoZone(listOfRows);
 	}
 	
 	@Test
-	public void test4averageBuildDurationForGeoZone()
+	public void testaverageBuildDurationForGeoZone()
 	{
 		if(listOfRows.size() >0)
 			taskHandler.averageBuildDurationForGeoZone(listOfRows);
